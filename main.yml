@@ -1,0 +1,17 @@
+name: Running check assistance
+on:
+  schedule:
+    - cron: '25 3 * * *'
+
+jobs:
+  Test:
+    runs-on: macos-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+          spec: 'cypress/integration/*.spec.js'
