@@ -1,8 +1,7 @@
 name: Running check assistance
-on:
-  schedule:
-    - cron: '5 * * * *'
-
+on: [push]
+  #schedule: 
+    #- cron: '5 * * * *'S
 jobs:
   Test:
     runs-on: macos-latest
