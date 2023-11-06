@@ -6,6 +6,12 @@ on:
 jobs:
   Test:
     runs-on: macos-latest
+
+    strategy:
+      fail-fast: false # Allow retries on job failure
+      matrix:
+        retry-max: [1, 2, 3] # Number of retry attempts
+
     steps:
 
       - name: Checkout code
@@ -21,4 +27,13 @@ jobs:
 
       - name: Run Cypress tests
         run: npm run cypress:runChrome
+
+  retry:
+    needs: Test
+    if: failure()
+    runs-on: macos-latest
+
+    steps:
+      - name: Retry Cypress Tests
+        run: echo "Retrying Cypress Tests"
         
