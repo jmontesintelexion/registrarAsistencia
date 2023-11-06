@@ -9,8 +9,6 @@ jobs:
 
     strategy:
       fail-fast: false # Allow retries on job failure
-      matrix:
-        retry-max: [1, 2, 3] # Number of retry attempts
 
     steps:
 
