@@ -1,7 +1,7 @@
 name: Running check assistance
 on:
   schedule: 
-    - cron: '0,10,20,30,40,50 7-9 * * 1-5'
+    - cron: '0,10,30,50 12-14 * * 1-5'
   workflow_dispatch:
 jobs:
   Test:
